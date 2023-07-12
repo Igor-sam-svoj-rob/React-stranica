@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaHotel, FaBars, FaTimes } from "react-icons/fa";
 import "./Header.css";
@@ -11,6 +11,10 @@ const Header = () => {
   const navMenuClass = click ? "nav-menu active" : "nav-menu";
   const closeMobileMenu = () => setClick(false);
   const [button, setButton] = useState(false);
+
+  useEffect(() => {
+    showButton();
+  }, [button]);
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
